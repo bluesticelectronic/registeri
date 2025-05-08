@@ -2,82 +2,103 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>MoneyEasily - Register</title>
+  <title>Activate Account & Upload Screenshot</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #eef5fa;
-      display: flex;
-      justify-content: center;
-      padding: 40px;
+      background-color: #f2f8ff;
+      padding: 30px;
+      text-align: center;
     }
-    .container {
-      background-color: white;
-      padding: 40px;
-      width: 100%;
+
+    .box {
+      border: 1px solid #ccc;
+      background-color: #e6f0fa;
+      padding: 20px;
       max-width: 500px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 20px auto;
       border-radius: 8px;
     }
+
     h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    input, select {
-      width: 100%;
-      padding: 12px;
-      margin: 8px 0;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      box-sizing: border-box;
-    }
-    .checkbox-container {
-      display: flex;
-      align-items: center;
-      margin: 10px 0;
-    }
-    .checkbox-container input {
-      margin-right: 10px;
-    }
-    .submit-button {
-      background-color: #4338ca;
+      background-color: #5a3fc0;
       color: white;
-      padding: 14px;
-      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    .warning {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .button {
+      background-color: #5a3fc0;
+      color: white;
       border: none;
+      padding: 12px 24px;
+      font-size: 16px;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 16px;
+      margin-top: 15px;
     }
-    .login-link {
-      text-align: center;
-      margin-top: 10px;
-      font-size: 14px;
+
+    .button:hover {
+      background-color: #472f9c;
+    }
+
+    #uploadBox {
+      display: none;
+    }
+
+    input[type="file"] {
+      margin-top: 15px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2><img src="moneyeasily250.jpg" alt="MoneyEasily" style="height: 50px;"></h2>
-    <p>Register to get started</p>
-    <form action="payment.html" method="GET">
-      <input type="text" placeholder="First Name" required>
-      <input type="text" placeholder="Last Name" required>
-      <input type="text" placeholder="Username" required>
-      <input type="email" placeholder="Email Address" required>
-      <input type="text" placeholder="Upline Username" value="MANAGER EMMANUEL" readonly>
-      <input type="tel" placeholder="Phone Number" required>
-      <input type="password" placeholder="Password" required>
-      <input type="password" placeholder="Repeat Password" required>
-      <div class="checkbox-container">
-        <input type="checkbox" required>
-        <label>I agree to all Terms & Conditions.</label>
-      </div>
-      <button type="submit" class="submit-button">Submit Now</button>
-    </form>
-    <div class="login-link">
-      Already have an account? <a href="#">Login</a>
-    </div>
+
+  <!-- Activate Account Box -->
+  <div class="box" id="activateBox">
+    <h2>ACTIVATE ACCOUNT HERE</h2>
+    <p><strong>PAY WITH MTN RWANDA</strong></p>
+    <p><strong>OPTION</strong><br>
+      *182*8*1*1632327#<br>
+      IZINA NI (WILLY)<br>
+      UMUBARE W'AMAFARANGA 5300 RWF</p>
+    <p><strong>N.B:</strong> BIRABUJIJWE KUGIRA INDI NUMBER WISHYURAHO<br>
+      ITARIMUZA TANZWE HARUGURU</p>
+    <p class="warning">Sending funds on wrong number will end up lose!</p>
+    <button class="button" onclick="showUpload()">Submit Payment Request</button>
   </div>
+
+  <!-- Upload Screenshot Box -->
+  <div class="box" id="uploadBox">
+    <h2>UPLOAD PAYMENT SCREENSHOT</h2>
+    <p>Please upload the screenshot of your payment to verify your transaction.</p>
+    <input type="file" accept="image/*" id="screenshotFile">
+    <br>
+    <button class="button" onclick="submitScreenshot()">Submit Screenshot</button>
+  </div>
+
+  <script>
+    function showUpload() {
+      document.getElementById('activateBox').style.display = 'none';
+      document.getElementById('uploadBox').style.display = 'block';
+    }
+
+    function submitScreenshot() {
+      const fileInput = document.getElementById('screenshotFile');
+      if (!fileInput.files.length) {
+        alert("Please upload a screenshot before submitting.");
+        return;
+      }
+
+      // Screenshot "uploaded" locally – now redirect to activation page
+      window.location.href = 'activation-code.html';
+    }
+  </script>
+
 </body>
 </html>
