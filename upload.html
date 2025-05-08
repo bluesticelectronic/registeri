@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload Payment Screenshot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f8ff;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .box {
+      border: 1px solid #ccc;
+      background-color: #e6f0fa;
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      border-radius: 8px;
+    }
+
+    h2 {
+      background-color: #5a3fc0;
+      color: white;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    .button {
+      background-color: #5a3fc0;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    .button:hover {
+      background-color: #472f9c;
+    }
+
+    input[type="file"] {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>UPLOAD PAYMENT SCREENSHOT</h2>
+    <p>Please upload the screenshot of your payment to verify your transaction.</p>
+    <input type="file" id="screenshotFile" accept="image/*">
+    <br>
+    <button class="button" onclick="goToActivationPage()">Submit Screenshot</button>
+  </div>
+
+  <script>
+    function goToActivationPage() {
+      const fileInput = document.getElementById("screenshotFile");
+      if (fileInput.files.length === 0) {
+        alert("Please upload a screenshot before submitting.");
+      } else {
+        window.location.href = "activation-code.html";
+      }
+    }
+  </script>
+
+</body>
+</html>
