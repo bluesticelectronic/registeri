@@ -132,11 +132,11 @@
       <label for="terms">I agree to the terms and conditions</label>
     </div>
 
-    <button id="submit" type="button">CONTINUE</button>
+    <button id="submit" type="button">GO TO PAYMENT</button>
 
     <p style="margin-top: 15px; font-size: 14px;">
       Already have an account?
-      <a href="https://bluesticelectronic.github.io/registeri/" style="color: #5a3fc0; text-decoration: none; font-weight: bold;">Sign in</a>
+      <a href="login.html" style="color: #5a3fc0; text-decoration: none; font-weight: bold;">Sign in</a>
     </p>
   </form>
 </div>
@@ -219,25 +219,25 @@
     const content = document.getElementById("uploadContent");
 
     container.style.display = "flex";
-    content.innerHTML = 
+    content.innerHTML = `
       <h2 style="color:#4c36d2;">Upload Payment Screenshot</h2>
       <input type="file" id="screenshotUpload" accept="image/*" style="margin:20px 0;" />
       <button onclick="showActivationFromUpload()" style="background-color:#4c36d2; color:white; padding:10px 20px; border:none; border-radius:5px;">Submit Screenshot</button>
       <br /><br />
       <button onclick="closeUploadSection()" style="background-color:#ccc; color:#333; padding:8px 16px; border:none; border-radius:5px;">Cancel</button>
-    ;
+    `;
   }
 
   function showActivationFromUpload() {
     const content = document.getElementById("uploadContent");
 
-    content.innerHTML = 
+    content.innerHTML = `
       <h2 style="color:#4c36d2;">Enter Activation Code</h2>
       <input type="text" id="activationCode" placeholder="Activation Code" style="margin: 10px 0; padding: 10px; width: 100%; border-radius: 5px;" />
       <button onclick="submitActivationCode()" style="background-color:#4c36d2; color:white; padding:10px 20px; border:none; border-radius:5px;">Submit Activation Code</button>
       <br /><br />
       <button onclick="closeUploadSection()" style="background-color:#ccc; color:#333; padding:8px 16px; border:none; border-radius:5px;">Cancel</button>
-    ;
+    `;
   }
 
   function submitActivationCode() {
@@ -249,7 +249,7 @@
 
     if (code === "248135") {
       alert("Activation successful! Redirecting...");
-      window.location.href = " https://bluesticelectronic.github.io/registeri/";
+      window.location.href = "  https://bluesticelectronic.github.io/login/";
     } else {
       alert("Invalid activation code. Please try again.");
     }
